@@ -7,4 +7,7 @@ A collection of utilities that were useful in my work
 # Scripts
 This repo contains the following list of scripts:
 
--[unity custom editor for json](https://github.com/BaekNothing/UnityUtilities/blob/main/CustomEditor/jsonEditUtility.cs)
+-[unity custom editor for json](https://github.com/BaekNothing/UnityUtilities/blob/main/CustomEditor/jsonEditUtility.cs)  
+-- Place this script on Unity/Editor
+-- Than, you can find tab on editor Window "MyUtil > UserInfoUtility"
+-- check path and file name (work only dir "Resorces/Json")
