@@ -77,7 +77,7 @@ public class UserInfoUtility : EditorWindow
     List<object> userObjectAry = new List<object>();
     List<bool> userShowOption = new List<bool>();
     JObject JsonUserInfo;
-    
+
     void ShowAdvanceUserInfo()
     {
         if (option == showOption.advanceShow && GUILayout.Button("Refresh")) { ClearUserData(); }
@@ -147,8 +147,7 @@ public class UserInfoUtility : EditorWindow
                 if ((userObjectAry[i] as JObject) != null)
                     foreach (JProperty property in (userObjectAry[i] as JObject).Properties())
                         if (property.Value as JArray == null)
-                            property.Value = Double.Parse(EditorGUILayout.TextField
-                                ($"{property.Name}: ", trimString(property.Value.ToString())));
+                            property.Value = EditorGUILayout.TextField($"{property.Name}: ", trimString(property.Value.ToString()));
             }
         }
         else
@@ -178,21 +177,13 @@ public class UserInfoUtility : EditorWindow
                         (userAryValues[counter] as JArray)[i] = userObjectAry[i] as JObject;
                     userValues[counter] = userAryValues[counter] as JArray;
                 }
-            if (CheckTokenInNumbers(userValues[counter]))
-                JsonUserInfo[name] = userValues[counter];
+            JsonUserInfo[name] = userValues[counter];
             changeUserInfo();
         }
         GUILayout.EndHorizontal();
         GUILayout.Space(10);
     }
 
-    System.Text.RegularExpressions.Regex regex = 
-		new System.Text.RegularExpressions.Regex("^(-?[0-9]+?)([,]?([0-9]+))*([.]?[0-9]+)%?$");
-    bool CheckTokenInNumbers(JToken inputValues)
-    {
-        return regex.IsMatch(inputValues.ToString());
-    }
-    
     void changeUserInfo()
     {
 #if UNITY_EDITOR
@@ -203,6 +194,7 @@ public class UserInfoUtility : EditorWindow
 
         WriteUserInfo(textString);
         AssetDatabase.Refresh();
+        ClearUserData();
         ReadUserInfo();
     }
 
@@ -217,7 +209,6 @@ public class UserInfoUtility : EditorWindow
 
         writer.WriteLine(message);
         writer.Close();
-        ReadUserInfo();
     }
 
     private void ReadUserInfo()
