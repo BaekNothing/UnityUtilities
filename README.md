@@ -11,3 +11,6 @@ This repo contains the following list of scripts:
 -- Place this script on Unity/Editor  
 -- Than, you can find tab on editor Window "MyUtil > UserInfoUtility"  
 -- check path and file name (work only dir "Resorces/Json")  
+
+-[optimized Scroll View](https://github.com/BaekNothing/UnityUtilities/blob/main/UI/OptimizedScrollview.cs)
+-- this utility target only to vertical & top cell index 0 (top to bottom) 
