@@ -14,3 +14,7 @@ This repo contains the following list of scripts:
 
 -[optimized Scroll View](https://github.com/BaekNothing/UnityUtilities/blob/main/UI/OptimizedScrollview.cs)  
 -- this utility target only to vertical & top cell index 0 (top to bottom) 
+
+-[UIComponentCashing](https://github.com/BaekNothing/UnityUtilities/blob/main/UI/UIComponentCashing.cs)
+-- Intentionally designed to work properly only when the function that returns the component, the variable that you want to cache, and the name of the target object are matched  
+-- (because human error may occur in the process of incorrectly entering the string if found as a "Find" function)
